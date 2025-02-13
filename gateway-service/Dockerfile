@@ -13,6 +13,7 @@ COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/gateway.js ./gateway.js
 
+ARG MONGO_URI
 ENV PORT=5000
 EXPOSE 5000
 CMD ["node", "gateway.js"]

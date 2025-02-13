@@ -16,6 +16,10 @@ COPY --from=build /app/models ./models
 COPY --from=build /app/app.js ./app.js
 COPY --from=build /app/controller ./controller
 
+ARG MONGO_URI
+
+ENV MONGO_URI=$MONGO_URI
 ENV USER_SERVICE_PORT=5001
+
 EXPOSE 5001
 CMD ["node", "server.js"]
